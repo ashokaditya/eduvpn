@@ -1,0 +1,28 @@
+mixin config-block(title)
+  .ui.raised.link.fluid.card
+    .content
+      .ui.list
+        .item
+          .right.floated.content
+            .ui.circular.labels
+              .ui.label.green
+                i.check.icon
+              .ui.label
+                i.remove.icon
+          .content
+            .ui.header= title
+    .content
+      .ui.very.relaxed.list
+        .item
+          .header
+            i.history.icon
+            |  Issued (UTC)
+          | 2017-11-20 10:07:40
+        .item
+          .header
+            i.calendar.icon
+            |  Expires (UTC)
+          | 2018-11-20 10:07:40
+    button.ui.bottom.attached.button
+      i.download.icon
+      | Download

@@ -1,0 +1,5 @@
+/*******************************
+     User Global Variables
+*******************************/
+@fontName          : 'Montserrat';
+@googleFontSizes   : '300,400,300italic,400italic';

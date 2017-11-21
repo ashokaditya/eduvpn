@@ -1,0 +1,23 @@
+doctype html
+html
+  include config-card.pug
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title eduvpn
+    link(rel='stylesheet', href='semantic/dist/semantic.css')
+    link(rel='stylesheet', href='css/app.css')
+  body
+    .flex-body
+      .flex-sidebar.config-sidebar
+        .ui.fixed.sticky.header.green
+          | Configurations
+        - var n = 0
+        .ui.cards
+          while n < 8
+            +config-block('Configuration ' + n)
+            - n++
+      .flex-content
+        .flex-center
+        .flex-right
+  script(src='js/app.js')

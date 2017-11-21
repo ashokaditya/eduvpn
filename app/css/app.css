@@ -36,7 +36,21 @@ body {
 .config-sidebar .label i {
   margin: 0!important;
 }
-.flex-sidebar {
+.mid-bar {
+  background: #fdfdfd;
+  border-right: 1px solid #dedede;
+  bottom: 0;
+  overflow: auto;
+  padding: 4.5rem 1.8rem;
+  position: static;
+  left: 31%;
+  right: 0;
+  top: 3.6875rem;
+  visibility: visible;
+  z-index: 2;
+}
+.flex-sidebar,
+.flex-midbar {
   transform: translateY(0);
   flex: 0 0 25em;
   -ms-flex-order: -1;
@@ -44,4 +58,7 @@ body {
   -moz-box-ordinal-group: -1;
   -webkit-order: -1;
   order: -1;
+}
+.flex-midbar {
+  flex: 0 0 60em;
 }

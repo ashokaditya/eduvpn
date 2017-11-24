@@ -1,0 +1,25 @@
+mixin create-panel(num)
+  .ui.blue.huge.statistic
+    .value= num
+    .label active configurations
+  .ui.centered.header
+    | Download a configuration or create a new one below
+  .ui.stacked.padded.segment
+    h3.ui.center.aligned.icon.blue.header
+      i.circular.location.arrow.icon
+      | New Configuration
+    .ui.form.create
+      .field
+        input(type='text' placeholder='Give it a name').fluid
+      .field
+        .ui.selection.dropdown
+          input(type='hidden', name='profile')
+          i.dropdown.icon
+          .default.text Select a profile
+          .menu
+            .item(data-value='0') Laptop home
+            .item(data-value='1') iPhone work
+            .item(data-value='2') Android home
+      button.ui.blue.fluid.button(type='submit')
+        i.download.icon
+        | Add (Download)

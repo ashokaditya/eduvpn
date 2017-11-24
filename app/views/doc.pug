@@ -1,0 +1,214 @@
+mixin doc-block(title)
+
+  h1= title
+  p
+   | Follow these steps:
+  ol
+   li Choose and download a VPN application from the list below;
+   li
+     | Load the configuration file, obtained 
+     a(href='new') here
+     | , in
+     |         the application.
+  h2 Application
+  h3 Windows
+  ol
+   li
+     | Download the 
+     a(target='_blank', href='https://openvpn.net/index.php/open-source/downloads.html') OpenVPN Community client
+     ul
+       li
+         | Choose "Installer, Windows Vista and later";
+       li
+         | Make sure you have the installer from the 2.4 release, e.g. 
+         code openvpn-install-2.4.4-I601.exe
+         | ;
+       li Keep your version updated, there may be (security) releases from time to time!
+   li Install the OpenVPN Community client
+   li
+     | (Optionally) read the documentation 
+     a(target='_blank', href='https://github.com/OpenVPN/openvpn-gui/') here
+     | ;
+   li
+     | Start OpenVPN (a Desktop icon is created automatically);
+   li
+     | Import the downloaded configuration by right clicking on OpenVPN's tray icon and choosing "Import".
+  p
+   em Note
+   | : OpenVPN will automatically start on Windows start-up, it will 
+   em not
+   |  automatically connect!
+  h3 macOS
+  p
+   | Download 
+   a(target='_blank', href='https://tunnelblick.net/') tunnelblick
+   | . 
+   |     Read the 
+   a(target='_blank', href='https://tunnelblick.net/czQuick.html') Quick Start Guide
+   | .
+  h3 Android
+  |     Install 
+  a(target='_blank', href='https://play.google.com/store/apps/details?id=de.blinkt.openvpn') OpenVPN for Android
+  | , 
+  |     also available via 
+  a(target='_blank', href='https://f-droid.org/repository/browse/?fdid=de.blinkt.openvpn') F-Droid
+  | . 
+  |     The proprietary 
+  a(target='_blank', href='https://play.google.com/store/apps/details?id=net.openvpn.openvpn') OpenVPN Connect
+  |  can also be used. See the OpenVPN Connect 
+  a(target='_blank', href='https://docs.openvpn.net/docs/openvpn-connect/openvpn-connect-android-faq.html') FAQ
+  | .
+  h3 iOS
+  p
+   | Install 
+   a(target='_blank', href='https://itunes.apple.com/us/app/openvpn-connect/id590379981') OpenVPN Connect
+   | . 
+   |     A 
+   a(target='_blank', href='https://docs.openvpn.net/docs/openvpn-connect/openvpn-connect-ios-faq.html') FAQ
+   |  is available.
+  p
+   | You may want to enable 
+   code Seamless tunnel (iOS8+)
+   |  in the OpenVPN Settings.
+   |     It will try to keep the VPN tunnel active as much as possible. See the FAQ for more details.
+  h3 Linux
+  p
+   | Importing the VPN configuration in NetworkManager works fine on modern
+   | Linux distributions. The following distributions were tested and work:
+  ul
+   li
+     a(href='https://getfedora.org/') Fedora
+     |  >= 24;
+   li
+     a(href='https://www.centos.org/') CentOS
+     |  >= 7 (
+     code yum install NetworkManager-openvpn-gnome
+     | );
+   li
+     a(href='https://www.debian.org/') Debian
+     |  >= 9 (
+     code apt install network-manager-openvpn-gnome
+     | );
+   li
+     a(href='https://www.ubuntu.com/') Ubuntu
+     |  >= 17.10 (
+     code apt install network-manager-openvpn-gnome
+     | );
+  p
+   | NetworkManager does have some issues with 
+   a(href='https://en.wikipedia.org/wiki/DNS_leak') leaking DNS
+   |  for
+   |     which currently no easy work-around is available.
+  h2 Two-factor Authentication
+  p
+   | Two-factor authentication (2FA) can be used to protect your account from 
+   | unauthorized access. It works by asking for an additional 
+   em key
+   |     that needs to be provided on every login to the portal. In addition,
+   |     administrators can also enable 2FA for connecting to the VPN, requiring
+   |     you to provide the 2FA key when connecting to the VPN.
+  p
+   | When connecting to a 2FA enabled 
+   | VPN, use the user name 
+   code totp
+   |  (for TOTP), or 
+   code yubi
+   |     (for a YubiKey) depending
+   |     on which 2FA method is used, and provide the generated key as 
+   |     the password. Do 
+   em not
+   |  store the password, as it will be
+   |     different every time the connection is established.
+  p.plain
+   | If you enroll with both TOTP and a YubiKey, the YubiKey will be used
+   | for authenticating to the portal!
+  p
+   | Contact support if you lost your second factor.
+  h3 TOTP
+  p
+   | The TOTP method works by registering a 
+   em secret
+   |  in an
+   |     application, e.g. running on your mobile phone. There are various
+   |     applications to choose from, but at the moment we recommend FreeOTP.
+  ul
+   li
+     | Android (
+     a(target='_blank', href='https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp') Google Play Store
+     | , 
+     a(target='_blank', href='https://f-droid.org/repository/browse/?fdid=org.fedorahosted.freeotp') F-Droid
+     | )
+   li
+     | iOS (
+     a(target='_blank', href='https://itunes.apple.com/us/app/freeotp/id872559395') iTunes
+     | )
+  p
+   | Enroll for TOTP 
+   a(href='totp') here
+   | .
+  h3 YubiKey
+  p
+   | YubiKeys are physical tokens that need to be plugged into the USB port
+   | of a computer. They have a button that will provide a OTP when pressed.
+  p
+   | Enroll with a YubiKey 
+   a(href='yubi') here
+   | .
+  h2 Recommendations for using the VPN
+  p
+   | At the very least, use the latest version of 
+   a(href='https://getfirefox.com') Mozilla Firefox
+   |  to browse the
+   |     web, and use the following add-ons:
+  ul
+   li
+     a(href='https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/') uBlock Origin
+     |         to block web trackers and advertisements to limit the exposure
+     |         to malware;
+   li
+     a(href='https://addons.mozilla.org/en-US/firefox/addon/https-everywhere/') HTTPS Everywhere
+     |         to use HTTPS whenever possible when the sites themselves
+     |         provide HTTPS, but by default do not send the browser to the
+     |         HTTPS version of the site.
+  p
+   | Make sure you 
+   em disable
+   |  WebRTC to avoid leaking your (local)
+   |     non-VPN addresses by typing 
+   code about:config
+   |  in the URL bar, 
+   |     looking for the 
+   code media.peerconnection.enabled
+   |  key and 
+   |     setting it to 
+   code false
+   | .
+  h2 Privacy and Trust
+  p
+   | Using a VPN service is not a magical solution to remain safe and
+   | anonymous when using the Internet, nor should you use this service
+   | under the assumption you can never be traced back. This is not only
+   | true for this VPN service, but for all of them. Better safe than sorry!
+  p
+   | If you want to obtain a higher degree of anonymity and security you 
+   | should consider using software like the 
+   a(target='_blank', href='https://www.torproject.org/') Tor Browser
+   | , 
+   |     or preferably 
+   a(target='_blank', href='https://tails.boum.org/') Tails
+   | .
+   |     Even then, caution is required. Please make sure you read all
+   |     accompanying documentation and warnings there!
+  p
+   | Most smartphones and computers will use the Internet connection 
+   | before the VPN can be activated. On smartphones this problem can only
+   | be solved by 
+   em rooting
+   |  or 
+   em jail breaking
+   |  your phone and
+   |     installing applications on it that tightly control the network traffic. 
+   |     This is 
+   strong NOT
+   |  recommended! On a computer this can be
+   |     dealt with by using Tails mentioned above.

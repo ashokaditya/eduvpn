@@ -1,13 +1,17 @@
-mixin config-block(title)
-  .ui.raised.link.fluid.card
+mixin config-block(title, ic, colr, isd, exp)
+  .ui.raised.link.card
     .content
       .ui.list
         .item
           .right.floated.content
             .ui.circular.labels
-              .ui.label.green
-                i.check.icon
-              .ui.label
+              .ui.label(class=colr)
+                i.icon(class=ic)
+              .ui.label(
+                    data-tooltip='Delete' 
+                    data-position='bottom right' 
+                    data-variation='mini'
+                  )
                 i.remove.icon
           .content
             .ui.header= title
@@ -17,12 +21,12 @@ mixin config-block(title)
           .header
             i.history.icon
             |  Issued (UTC)
-          | 2017-11-20 10:07:40
+          | #{isd}
         .item
           .header
             i.calendar.icon
             |  Expires (UTC)
-          | 2018-11-20 10:07:40
+          | #{exp}
     button.ui.bottom.attached.button
       i.download.icon
       | Download

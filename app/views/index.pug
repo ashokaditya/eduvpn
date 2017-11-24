@@ -1,6 +1,8 @@
 doctype html
 html
-  include config-card.pug
+  include config-card.pug 
+  include create-new.pug
+  include doc.pug
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
@@ -9,16 +11,33 @@ html
     link(rel='stylesheet', href='css/app.css')
   body
     .flex-body
+      .ui.top.fixed.icon.large.menu
+        .item.header
+          | edu VPN
+        .right.item
+          i.user.outline.icon
       .flex-sidebar.config-sidebar
-        .ui.fixed.sticky.header.green
-          | Configurations
         - var n = 0
-        .ui.cards
-          while n < 8
-            +config-block('Configuration ' + n)
+        - var act = 5
+        - var now = new Date()
+        - var nowstr = now.toUTCString().substr(4).substr(0,21)
+        - var exp = new Date()
+        - var expy = exp.setFullYear(exp.getFullYear() + 1)
+        - var expstr = exp.toUTCString().substr(4).substr(0,21)
+        .ui.two.doubling.cards
+          while n < 9
+            if n < act
+              +config-block('Configuration ' + n, 'check', 'blue', nowstr, expstr)
+            else
+              +config-block('Configuration ' + n, 'minus', '', nowstr, expstr)
             - n++
       .flex-midbar.mid-bar
-        +config-block('Configuration')
+          +create-panel(act)
       .flex-content
-        .flex-right
+        +doc-block('Getting Started')
+  script(
+    src='https://code.jquery.com/jquery-3.1.1.min.js' 
+    integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8='
+    crossorigin='anonymous')
+  script(src='semantic/dist/semantic.js')
   script(src='js/app.js')

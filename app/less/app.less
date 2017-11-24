@@ -13,19 +13,27 @@ body {
   overflow: hidden;
 }
 
+.flex-sidebar, .flex-midbar{
+  margin-top: 44px;
+  height: calc('100vh - 44px');
+  transform: translateY(0);
+  flex: 0 0 25vw;
+  min-width: 480px;
+  order: -1;
+}
+
 .config-sidebar {
-  background: #fdfdfd;
-  border-right: 1px solid #dedede;
   bottom: 0;
   overflow: auto;
-  padding: 4.5rem 1.8rem;
+  padding: 2rem 1.8rem;
   position: static;
   left: 0;
   right: 0;
-  top: 3.6875rem;
   visibility: visible;
-  width: 30%;
+  max-width: 33%;
+  min-width: 360px;
   z-index: 2;
+  box-shadow: 2px 1px 4px 0px rgba(34, 36, 38, 0.12), 2px 1px 10px 0px rgba(34, 36, 38, 0.15);
 
   > .header {
     padding: 15px 25px;
@@ -38,35 +46,54 @@ body {
     background: #fff;
   }
 
+  .card {
+    >.content:first-child {
+      padding-bottom: .5em;
+    }
+  }
+
   .label i {
     margin: 0!important;
   }
 }
 
-.mid-bar {
-  background: #fdfdfd;
-  border-right: 1px solid #dedede;
-  bottom: 0;
-  overflow: auto;
-  padding: 4.5rem 1.8rem;
-  position: static;
-  left: 31%;
-  right: 0;
-  top: 3.6875rem;
-  visibility: visible;
-  z-index: 2;
-}
 
-.flex-sidebar, .flex-midbar {
-  transform: translateY(0);
-  flex: 0 0 25em;
-  -ms-flex-order: -1;
-  -webkit-box-ordinal-group: -1;
-  -moz-box-ordinal-group: -1;
-  -webkit-order: -1;
-  order: -1;
-}
 
 .flex-midbar {
-  flex: 0 0 60em;
+  display: inherit;
+  flex: 0 0 30vw;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+}
+
+.mid-bar {
+  bottom: 0;
+  overflow: hidden;
+  padding: 2rem 1.8rem;
+  position: static;
+  left: 25vw;
+  right: 0;
+  visibility: visible;
+  z-index: 2;
+  .statistic {
+    width: 50%;
+    flex-basis: 30%;
+  }
+  .segment {
+    width: 60%;
+    flex-basis: 0%;
+  }
+}
+
+.flex-content {
+  background: #fff;
+  box-shadow: -2px 1px 4px 0px rgba(34, 36, 38, 0.12), -2px 1px 10px 0px rgba(34, 36, 38, 0.15);
+  flex: 1 1 50vw;
+  min-width: 480px;
+  max-width: 100%;
+  margin-top: 44px;
+  height: calc('100vh - 44px');
+  overflow-y: scroll;
+  padding: 2rem 1.8rem;
 }

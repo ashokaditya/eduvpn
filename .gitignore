@@ -1,3 +1,8 @@
+#compiled files
+app/*.html
+app/css/*.css
+app/js/*.js
+
 # Logs
 logs
 *.log

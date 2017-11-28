@@ -1,3 +1,6 @@
+#misc
+.DS_store
+
 #compiled files
 app/*.html
 app/css/*.css
@@ -61,4 +64,3 @@ typings/
 
 # dotenv environment variables file
 .env
-

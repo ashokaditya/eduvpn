@@ -1,10 +1,16 @@
-// @import '../semantic/src/semantic.less';
 @app-bg : #f1f5f9;
 @top-marg : 44px;
+@wide-fs: 1rem;
+@mob-fs: .5rem;
+
+html {
+  font-size: .875em;
+}
 
 body {
   background: @app-bg;
   font-weight: 300!important;
+  font-size: @wide-fs;
 }
 
 .flex-body {
@@ -19,21 +25,19 @@ body {
   margin-top: @top-marg;
   height: calc('100vh - @top-marg');
   transform: translateY(0);
-  flex: 0 0 25vw;
-  min-width: 480px;
+  flex: 0 0 45em;
   order: -1;
 }
 
 .config-sidebar {
   bottom: 0;
   overflow: auto;
-  padding: 2rem 1.8rem;
+  padding: 2.5em 1.8em;
   position: static;
   left: 0;
   right: 0;
   visibility: visible;
-  max-width: 33%;
-  min-width: 360px;
+  // max-width: 33%;
   z-index: 2;
   box-shadow: 2px 1px 4px 0px rgba(34, 36, 38, 0.12), 2px 1px 10px 0px rgba(34, 36, 38, 0.15);
 
@@ -59,20 +63,16 @@ body {
   }
 }
 
-
-
 .flex-midbar {
   display: inherit;
-  flex: 0 0 30vw;
   flex-direction: column;
   align-items: center;
-  // justify-content: center;
 }
 
 .mid-bar {
   bottom: 0;
   overflow: hidden;
-  padding: 2rem 1.8rem;
+  padding: 2em 1.8em;
   position: static;
   left: 25vw;
   right: 0;
@@ -91,11 +91,58 @@ body {
 .flex-content {
   background: #fff;
   box-shadow: -2px 1px 4px 0px rgba(34, 36, 38, 0.12), -2px 1px 10px 0px rgba(34, 36, 38, 0.15);
-  flex: 1 1 50vw;
-  min-width: 480px;
-  max-width: 100%;
+  flex: 1 1 50em;
+  // min-width: 480px;
+  // max-width: 100%;
   margin-top: @top-marg;
   height: calc('100vh - @top-marg');
   overflow-y: scroll;
-  padding: 2rem 1.8rem;
+  padding: 2em 1.8em;
+}
+
+.mobile {
+  display: none!important;
+}
+
+@media screen
+and (max-width: 1440px) {
+  html {
+    font-size:.625em;
+  }
+  .flex-content, .flex-sidebar, .flex-midbar {
+    flex: 0 0 33.33vw;
+    margin-top: 40px;
+    height: calc('100vh-40px');
+  }
+}
+
+@media screen
+and (max-width: 1024px) {
+  html {
+    font-size:.625em;
+  }
+  .flex-sidebar, .flex-midbar {
+    flex: 0 0 50vw;
+    margin-top: 40px;
+    height: calc('100vh-40px');
+  }
+}
+
+@media screen
+and (max-width: 425px) {
+  html {
+    font-size: .5em;
+  }
+  .flex-content, .flex-sidebar, .flex-midbar {
+    margin-top: 0;
+    margin-bottom: 40px;
+    height: calc('100vh-40px');
+    min-width: 100vw;
+  }
+  .widescreen {
+    display: none!important;
+  }
+  .mobile {
+    display: flex!important;
+  }
 }

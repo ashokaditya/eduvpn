@@ -1,5 +1,5 @@
 mixin config-block(title, ic, colr, isd, exp)
-  .ui.raised.link.card
+  .ui.card
     .content
       .ui.list
         .item
@@ -27,6 +27,8 @@ mixin config-block(title, ic, colr, isd, exp)
             i.calendar.icon
             |  Expires (UTC)
           | #{exp}
-    button.ui.bottom.attached.button
+    button.ui.bottom.attached.button(
+      class=colr=='blue' ? colr : 'blue disabled' 
+      disabled=colr=='blue' ? false : true)
       i.download.icon
       | Download

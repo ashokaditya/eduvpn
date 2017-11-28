@@ -6,13 +6,13 @@ import pug from 'gulp-pug'
 import sw from './app/semantic/tasks/watch'
 import sb from './app/semantic/tasks/build'
 import less from 'gulp-less'
-import lap from 'less-plugin-autoprefix'
+import Lap from 'less-plugin-autoprefix'
 import useref from 'gulp-useref'
 import uglify from 'gulp-uglify'
 import gulpIf from 'gulp-if'
 import browserSync from 'browser-sync'
 
-const autoprefix = new lap({browsers: ['> 1%', 'last 1 version']})
+const autoprefix = new Lap({browsers: ['> 1%', 'last 1 version']})
 
 gulp.task('sw', sw)
 gulp.task('sb', sb)
@@ -40,7 +40,7 @@ gulp.task('useref', () => {
     .pipe(plumber())
     .pipe(useref())
     .pipe(gulpIf('*.js', uglify()))
-    .pipe(gulp.dest('js'))
+    .pipe(gulp.dest('app/js'))
     .pipe(browserSync.reload({stream: true}))
 })
 

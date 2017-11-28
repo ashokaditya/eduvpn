@@ -1,7 +1,9 @@
 // @import '../semantic/src/semantic.less';
+@app-bg : #f1f5f9;
+@top-marg : 44px;
 
 body {
-  background: #f1f5f9;
+  background: @app-bg;
   font-weight: 300!important;
 }
 
@@ -14,8 +16,8 @@ body {
 }
 
 .flex-sidebar, .flex-midbar{
-  margin-top: 44px;
-  height: calc('100vh - 44px');
+  margin-top: @top-marg;
+  height: calc('100vh - @top-marg');
   transform: translateY(0);
   flex: 0 0 25vw;
   min-width: 480px;
@@ -92,8 +94,8 @@ body {
   flex: 1 1 50vw;
   min-width: 480px;
   max-width: 100%;
-  margin-top: 44px;
-  height: calc('100vh - 44px');
+  margin-top: @top-marg;
+  height: calc('100vh - @top-marg');
   overflow-y: scroll;
   padding: 2rem 1.8rem;
 }

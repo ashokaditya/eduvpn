@@ -13,10 +13,13 @@ html
     .ui.top.fixed.icon.large.menu.widescreen
       .item.header
         | edu VPN
-      .right.item
-        i.user.icon
+      .right.menu
+        .item.tablets
+          i.help.icon
+        .item
+          i.user.icon
     .flex-body
-      .flex-sidebar.config-sidebar
+      .flex-sidebar.config-sidebar.pan-config
         - var n = 1
         - var act = 5
         - var now = new Date()
@@ -31,19 +34,23 @@ html
             else
               +config-block('Configuration ' + n, 'minus', '', nowstr, expstr)
             - n++
-      .flex-midbar.mid-bar
+      .flex-midbar.mid-bar.pan-new
           +create-panel(act)
-      .flex-content
+      .flex-content.pan-doc
         +doc-block('Getting Started')
-    .ui.bottom.fixed.icon.tiny.fluid.four.item.menu.mobile
-      a.item.active
+    .ui.bottom.fixed.labeled.icon.mini.fluid.four.item.inverted.blue.borderless.menu.mobile
+      a.item.config.active(onClick="appModule.showPanel('config')")
         i.list.icon
-      a.item
+        | Configs
+      a.item.new(onClick="appModule.showPanel('new')")
         i.download.icon
-      a.item
+        | New
+      a.item.doc(onClick="appModule.showPanel('doc')")
         i.help.icon
-      a.item 
+        | Help
+      a.item.acc(onClick="appModule.showPanel('acc')") 
         i.user.icon
+        | Account
   script(
     src='https://code.jquery.com/jquery-3.1.1.min.js' 
     integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8='

@@ -1,16 +1,16 @@
-'use strict'
+// 'use strict'
 
-import gulp from 'gulp'
-import plumber from 'gulp-plumber'
-import pug from 'gulp-pug'
-import sw from './app/semantic/tasks/watch'
-import sb from './app/semantic/tasks/build'
-import less from 'gulp-less'
-import Lap from 'less-plugin-autoprefix'
-import useref from 'gulp-useref'
-import uglify from 'gulp-uglify'
-import gulpIf from 'gulp-if'
-import browserSync from 'browser-sync'
+const gulp = require('gulp')
+const plumber = require('gulp-plumber')
+const pug = require('gulp-pug')
+const sw = require('./app/semantic/tasks/watch')
+const sb = require('./app/semantic/tasks/build')
+const less = require('gulp-less')
+const Lap = require('less-plugin-autoprefix')
+const useref = require('gulp-useref')
+const uglify = require('gulp-uglify')
+const gulpIf = require('gulp-if')
+const browserSync = require('browser-sync')
 
 const autoprefix = new Lap({browsers: ['> 1%', 'last 1 version']})
 
@@ -39,7 +39,7 @@ gulp.task('useref', () => {
   return gulp.src('app/js/**/*.js')
     .pipe(plumber())
     .pipe(useref())
-    .pipe(gulpIf('*.js', uglify()))
+    // .pipe(gulpIf('*.js', uglify()))
     .pipe(gulp.dest('app/js'))
     .pipe(browserSync.reload({stream: true}))
 })

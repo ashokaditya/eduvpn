@@ -13,10 +13,14 @@ body {
   font-size: @wide-fs;
 }
 
+.hide {
+  display: none!important;
+}
+
 .flex-body {
   display: flex;
   flex-direction: row;
-  flex: 1 0 auto;
+  flex: 1 1 auto;
   height: 100vh;
   overflow: hidden;
 }
@@ -27,6 +31,8 @@ body {
   transform: translateY(0);
   flex: 0 0 45em;
   order: -1;
+  box-shadow: 1px 0px 0px 0px rgba(34, 36, 38, 0.1);
+  overflow-y: auto;
 }
 
 .config-sidebar {
@@ -37,9 +43,7 @@ body {
   left: 0;
   right: 0;
   visibility: visible;
-  // max-width: 33%;
   z-index: 2;
-  box-shadow: 2px 1px 4px 0px rgba(34, 36, 38, 0.12), 2px 1px 10px 0px rgba(34, 36, 38, 0.15);
 
   > .header {
     padding: 15px 25px;
@@ -72,35 +76,40 @@ body {
 .mid-bar {
   bottom: 0;
   overflow: hidden;
-  padding: 2em 1.8em;
+  padding: 2em 1em;
   position: static;
   left: 25vw;
   right: 0;
   visibility: visible;
   z-index: 2;
-  .statistic {
+
+  .ui.huge.statistic {
     width: 50%;
     flex-basis: 30%;
+    > .value {
+      font-size: 3em!important;
+    }
+  }
+  .ui.header {
+    font-size:1em;
   }
   .segment {
-    width: 60%;
+    width: 90%;
     flex-basis: 0%;
   }
 }
 
 .flex-content {
   background: #fff;
-  box-shadow: -2px 1px 4px 0px rgba(34, 36, 38, 0.12), -2px 1px 10px 0px rgba(34, 36, 38, 0.15);
   flex: 1 1 50em;
-  // min-width: 480px;
-  // max-width: 100%;
   margin-top: @top-marg;
   height: calc('100vh - @top-marg');
   overflow-y: scroll;
   padding: 2em 1.8em;
+  box-shadow: inset 1px 0px 4px 2px rgba(34, 36, 38, 0.2), 4px 0px 2px 2px rgba(34, 36, 38, 0.2);
 }
 
-.mobile {
+.mobile, .tablets {
   display: none!important;
 }
 
@@ -111,33 +120,50 @@ and (max-width: 1440px) {
   }
   .flex-content, .flex-sidebar, .flex-midbar {
     flex: 0 0 33.33vw;
-    margin-top: 40px;
-    height: calc('100vh-40px');
+    margin-top: 36px;
+    height: calc(~"100vh - 36px");
+  }
+  .flex-content {
+    box-shadow: none;
   }
 }
 
 @media screen
-and (max-width: 1024px) {
+and (max-width: 1080px) {
   html {
     font-size:.625em;
   }
   .flex-sidebar, .flex-midbar {
     flex: 0 0 50vw;
-    margin-top: 40px;
-    height: calc('100vh-40px');
+    margin-top: 36px;
+    height: calc(~"100vh - 36px");
+  }
+  .tablets {
+    display: flex!important;
+  }
+  .flex-content {
+    h1,h2,h3,h4,h5,h6 {
+      font-size: 1.5em;
+      line-height: 1em;
+    }
+    box-shadow: none;
+    // text-align: justify;
   }
 }
 
 @media screen
-and (max-width: 425px) {
+and (max-width: 669px) {
   html {
-    font-size: .5em;
+    font-size: .875em;
   }
   .flex-content, .flex-sidebar, .flex-midbar {
     margin-top: 0;
-    margin-bottom: 40px;
-    height: calc('100vh-40px');
+    margin-bottom: 45px;
+    height: calc(~"100vh - 45px");
     min-width: 100vw;
+  }
+  .flex-content {
+    box-shadow: none;
   }
   .widescreen {
     display: none!important;

@@ -3,7 +3,7 @@ mixin create-panel(num)
     .value= num
     .label active configurations
   .ui.centered.header
-    | Download a configuration or create a new one below
+    | Download an active config or create a new one here
   .ui.tall.stacked.raised.padded.segment
     h3.ui.center.aligned.blue.icon.header
       i.circular.world.icon
@@ -12,7 +12,7 @@ mixin create-panel(num)
       .field
         input(type='text' placeholder='Give it a name').fluid
       .field
-        .ui.selection.dropdown
+        .ui.fluid.selection.dropdown
           input(type='hidden', name='profile')
           i.dropdown.icon
           .default.text Select a profile

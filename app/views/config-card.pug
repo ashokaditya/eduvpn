@@ -1,4 +1,4 @@
-mixin config-block(title, ic, colr, isd, exp)
+mixin config-block(num, ic, colr, isd, exp)
   .ui.card
     .content
       .ui.list
@@ -14,16 +14,17 @@ mixin config-block(title, ic, colr, isd, exp)
                   )
                 i.remove.icon
           .content
-            .ui.header= title
+            .ui.small.header Configuration #{num}
     .content
       .ui.very.relaxed.list
         .item
-          .header
-            i.history.icon
+          .header.tiny.ui.blue
+            i.history.mini.icon
             |  Issued (UTC)
           | #{isd}
+        .progress(class='p-' + num)
         .item
-          .header
+          .header.tiny.ui.red
             i.calendar.icon
             |  Expires (UTC)
           | #{exp}

@@ -2,6 +2,7 @@ doctype html
 html
   include config-card.pug 
   include create-new.pug
+  include account.pug
   include doc.pug
   head
     meta(charset='utf-8')
@@ -10,34 +11,40 @@ html
     link(rel='stylesheet', href='semantic/dist/semantic.css')
     link(rel='stylesheet', href='css/app.css')
   body
-    .ui.top.fixed.icon.large.menu.widescreen
+    .ui.top.fixed.icon.small.blue.inverted.menu.widescreen
       .item.header
         | edu VPN
       .right.menu
         .item.tablets
           i.help.icon
-        .item
+        .item.ui.dropdown
           i.user.icon
+          .menu
+            a.item abra
+            a.item cad
     .flex-body
-      .flex-sidebar.config-sidebar.pan-config
+      .icon-bg
+      .flex-col.config-col.pan-config
         - var n = 1
-        - var act = 5
+        - var act = 3
         - var now = new Date()
         - var nowstr = now.toUTCString().substr(4).substr(0,21)
         - var exp = new Date()
         - var expy = exp.setFullYear(exp.getFullYear() + 1)
         - var expstr = exp.toUTCString().substr(4).substr(0,21)
         .ui.two.stackable.raised.link.cards
-          while n <= 9
+          while n <= 7
             if n <= act
-              +config-block('Configuration ' + n, 'check', 'blue', nowstr, expstr)
+              +config-block(n, 'check', 'blue', nowstr, expstr)
             else
-              +config-block('Configuration ' + n, 'minus', '', nowstr, expstr)
+              +config-block(n, 'minus', '', nowstr, expstr)
             - n++
-      .flex-midbar.mid-bar.pan-new
-          +create-panel(act)
-      .flex-content.pan-doc
+      .flex-midbar.mid-col.pan-new
+        +create-panel(act)
+      .flex-col.pan-doc
         +doc-block('Getting Started')
+      .flex-col.pan-acc.mobile
+        +acc-block()
     .ui.bottom.fixed.labeled.icon.mini.fluid.four.item.inverted.blue.borderless.menu.mobile
       a.item.config.active(onClick="appModule.showPanel('config')")
         i.list.icon
@@ -56,4 +63,5 @@ html
     integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8='
     crossorigin='anonymous')
   script(src='semantic/dist/semantic.js')
+  script(src='js/progressbar.js')
   script(src='js/app.js')

@@ -1,5 +1,5 @@
 @app-bg : #f1f5f9;
-@top-marg : 44px;
+@top-marg : 36px;
 @wide-fs: 1rem;
 @mob-fs: .5rem;
 
@@ -11,6 +11,9 @@ body {
   background: @app-bg;
   font-weight: 300!important;
   font-size: @wide-fs;
+  .header {
+    font-weight: 400!important;
+  }
 }
 
 .hide {
@@ -25,17 +28,28 @@ body {
   overflow: hidden;
 }
 
-.flex-sidebar, .flex-midbar{
+.icon-bg {
+  z-index: 0;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: url('../img/poly.svg') no-repeat 0% 40%;
+  background-size: cover;
+}
+
+.flex-col, .flex-midbar{
   margin-top: @top-marg;
   height: calc('100vh - @top-marg');
   transform: translateY(0);
   flex: 0 0 45em;
   order: -1;
-  box-shadow: 1px 0px 0px 0px rgba(34, 36, 38, 0.1);
-  overflow-y: auto;
+  box-shadow: 1px 0px 0px 0px rgba(34, 36, 38, 0.5);
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  background: rgba(255,255,255,.8)
 }
 
-.config-sidebar {
+.config-col, .pan-doc {
   bottom: 0;
   overflow: auto;
   padding: 2.5em 1.8em;
@@ -59,6 +73,40 @@ body {
   .card {
     >.content:first-child {
       padding-bottom: .5em;
+      .ui.circular.labels .label,
+      .ui.circular.label {
+        min-height: 1em;
+      }
+    }
+
+    > .content:nth-child(2) {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      font-size: 1em;
+      i {
+        font-size: .875em;
+        margin: 0;
+        padding: 0;
+        line-height: 1em;
+        position: relative;
+        top: -1px;
+      }
+    }
+
+    .progress {
+      width:100px;
+      height: 100px;
+      margin:auto;
+      .progressbar-text {
+        top: 53%!important;
+        .proglabel {
+          font-size: .75em;
+          font-weight: 600;
+          text-transform: uppercase;
+          text-align: center;
+        }
+      }
     }
   }
 
@@ -73,7 +121,7 @@ body {
   align-items: center;
 }
 
-.mid-bar {
+.mid-col {
   bottom: 0;
   overflow: hidden;
   padding: 2em 1em;
@@ -99,14 +147,55 @@ body {
   }
 }
 
-.flex-content {
+.pan-doc {
   background: #fff;
-  flex: 1 1 50em;
+  flex: 1 1 auto;
   margin-top: @top-marg;
   height: calc('100vh - @top-marg');
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   padding: 2em 1.8em;
-  box-shadow: inset 1px 0px 4px 2px rgba(34, 36, 38, 0.2), 4px 0px 2px 2px rgba(34, 36, 38, 0.2);
+  z-index: 2;
+  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.1);
+  flex-direction: row;
+  // .tab {
+  //   width: 20%;
+  //   height: auto;
+  //   // right: 0;
+  //   // position: absolute;
+  //   padding: 0 20px;
+  //   ul li {
+  //     list-style: none;
+  //   }
+  //   a {
+  //     text-decoration: none;
+  //   }
+  // }
+  // .doc {
+  //   width: 80%;
+  // }
+  a {
+    text-decoration: underline;
+    font-style: italic;
+    background: none;
+    color:#2185D0;
+    &:hover {
+      background: rgba(33, 133, 208, .8);
+      color: #fff;
+      text-decoration: none;
+      transition: .3s ease-in;
+    }
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+    > a {
+        background: #2185D0;
+        color: #fff;
+        padding: 0 10px;
+        font-style: normal;
+        text-decoration: none;
+    }
+  }
 }
 
 .mobile, .tablets {
@@ -118,13 +207,10 @@ and (max-width: 1440px) {
   html {
     font-size:.625em;
   }
-  .flex-content, .flex-sidebar, .flex-midbar {
+  .pan-doc, .flex-col, .flex-midbar {
     flex: 0 0 33.33vw;
-    margin-top: 36px;
-    height: calc(~"100vh - 36px");
-  }
-  .flex-content {
-    box-shadow: none;
+    margin-top: 28px;
+    height: calc(~"100vh - 28px");
   }
 }
 
@@ -133,21 +219,19 @@ and (max-width: 1080px) {
   html {
     font-size:.625em;
   }
-  .flex-sidebar, .flex-midbar {
+  .flex-col, .flex-midbar {
     flex: 0 0 50vw;
-    margin-top: 36px;
-    height: calc(~"100vh - 36px");
+    margin-top: 28px;
+    height: calc(~"100vh - 28px");
   }
   .tablets {
     display: flex!important;
   }
-  .flex-content {
+  .pan-doc {
     h1,h2,h3,h4,h5,h6 {
       font-size: 1.5em;
       line-height: 1em;
     }
-    box-shadow: none;
-    // text-align: justify;
   }
 }
 
@@ -156,14 +240,11 @@ and (max-width: 669px) {
   html {
     font-size: .875em;
   }
-  .flex-content, .flex-sidebar, .flex-midbar {
+  .pan-doc, .flex-col, .flex-midbar {
     margin-top: 0;
     margin-bottom: 45px;
     height: calc(~"100vh - 45px");
     min-width: 100vw;
-  }
-  .flex-content {
-    box-shadow: none;
   }
   .widescreen {
     display: none!important;

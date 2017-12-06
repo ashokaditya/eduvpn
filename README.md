@@ -1,9 +1,13 @@
 # eduvpn UI
 
 ## Redesign Ideas
-- [ ] Three column flex layout
-  - [ ] Left column holds configurations
-  - [ ] Mid column for creating new configurtaions
-  - [ ] Right most for always visible doc
-  - [ ] Collapse all on smaller screens and 
-    - [ ] Show bottom fixed tabs for switching views
+- [x] Three column flex layout
+  - [x] Left column holds configurations
+  - [x] Mid column for creating new configurations
+  - [x] Right most for always visible doc
+  - [x] Collapse all on smaller screens and
+    - [x] Show bottom fixed tabs for switching views
+- [x] Accounts Panel
+  - [ ] popups for actions and forms
+  - [ ] list of apps
+  - [ ] list of groups

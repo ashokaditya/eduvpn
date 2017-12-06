@@ -37,7 +37,7 @@ body {
   background-size: cover;
 }
 
-.flex-col, .flex-midbar{
+.flex-col, .flex-mid-col{
   margin-top: @top-marg;
   height: calc('100vh - @top-marg');
   transform: translateY(0);
@@ -115,7 +115,7 @@ body {
   }
 }
 
-.flex-midbar {
+.flex-mid-col {
   display: inherit;
   flex-direction: column;
   align-items: center;
@@ -158,22 +158,6 @@ body {
   z-index: 2;
   box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.1);
   flex-direction: row;
-  // .tab {
-  //   width: 20%;
-  //   height: auto;
-  //   // right: 0;
-  //   // position: absolute;
-  //   padding: 0 20px;
-  //   ul li {
-  //     list-style: none;
-  //   }
-  //   a {
-  //     text-decoration: none;
-  //   }
-  // }
-  // .doc {
-  //   width: 80%;
-  // }
   a {
     text-decoration: underline;
     font-style: italic;
@@ -207,7 +191,7 @@ and (max-width: 1440px) {
   html {
     font-size:.625em;
   }
-  .pan-doc, .flex-col, .flex-midbar {
+  .pan-doc, .flex-col, .flex-mid-col {
     flex: 0 0 33.33vw;
     margin-top: 28px;
     height: calc(~"100vh - 28px");
@@ -219,7 +203,7 @@ and (max-width: 1080px) {
   html {
     font-size:.625em;
   }
-  .flex-col, .flex-midbar {
+  .flex-col, .flex-mid-col {
     flex: 0 0 50vw;
     margin-top: 28px;
     height: calc(~"100vh - 28px");
@@ -240,7 +224,7 @@ and (max-width: 669px) {
   html {
     font-size: .875em;
   }
-  .pan-doc, .flex-col, .flex-midbar {
+  .pan-doc, .flex-col, .flex-mid-col {
     margin-top: 0;
     margin-bottom: 45px;
     height: calc(~"100vh - 45px");

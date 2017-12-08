@@ -1,6 +1,8 @@
 // 'use strict'
 
 const gulp = require('gulp')
+const browserify = require('browserify')
+const transform = require('vinyl-transform');
 const babel = require('gulp-babel')
 const plumber = require('gulp-plumber')
 const pug = require('gulp-pug')
@@ -39,21 +41,23 @@ gulp.task('babel', () => {
   return gulp.src('app/src/**/*.js')
   .pipe(plumber())
   .pipe(babel())
-  // .pipe(gulp.dest('app/js'))
-  .pipe(gulp.src('app/js/app.js'))
-  .pipe(uglify())
   .pipe(gulp.dest('app/js'))
   .pipe(browserSync.reload({stream: true}))
 })
 
 gulp.task('jsmin', () => {
-  return gulp.src('app/js/app.js')
+  let browserified = transform( (filename) => {
+   var b = browserify(filename)
+   return b.bundle()
+  })
+  return gulp.src(['app/js/app.js','app/js/utils.js'])
     .pipe(plumber())
+    .pipe(browserified)
     .pipe(uglify())
     .pipe(gulp.dest('app/js'))
 })
 
-gulp.task('serve', ['pug', 'less', 'babel'], function () {
+gulp.task('serve', ['pug', 'less', 'babel', 'jsmin'], function () {
   browserSync.init({
     server: {
       baseDir: 'app'

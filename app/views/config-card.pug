@@ -5,14 +5,12 @@ mixin config-block(num, ic, colr, isd, exp)
         .item
           .right.floated.content
             .ui.circular.labels
-              .ui.label(class=colr)
-                i.icon(class=ic)
               .ui.label(
-                    data-tooltip='Delete' 
-                    data-position='bottom right' 
-                    data-variation='mini'
-                  )
-                i.remove.icon
+                class=colr
+                data-tooltip=colr=='green' ? 'Active': 'Inactive'
+                data-position='bottom right'
+                data-variation='mini')
+                i.icon(class=ic)
           .content
             .ui.small.header Configuration #{num}
     .content
@@ -29,7 +27,7 @@ mixin config-block(num, ic, colr, isd, exp)
             |  Expires (UTC)
           | #{exp}
     button.ui.bottom.attached.button(
-      class=colr=='blue' ? colr : 'blue disabled' 
-      disabled=colr=='blue' ? false : true)
-      i.download.icon
-      | Download
+      class='black' 
+      disabled=colr=='green' ? true : false)
+      i.trash.icon
+      | Remove

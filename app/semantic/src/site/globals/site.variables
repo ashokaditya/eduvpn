@@ -3,3 +3,5 @@
 *******************************/
 @fontName          : 'Montserrat';
 @googleFontSizes   : '300,400,300italic,400italic';
+
+@green              : #bfd730;

@@ -20,14 +20,52 @@ body {
   display: none!important;
 }
 
-.flex-body {
-  display: flex;
-  flex-direction: row;
-  flex: 1 1 auto;
-  height: 100vh;
-  overflow: hidden;
+.inverted.menu {
+  a {
+    color:#37474F!important;
+  }
+  i {
+    margin-right: 10px!important;
+  }
+  .item:last-child:after{
+    position: absolute;
+    content: '';
+    top: 0%;
+    right: 0px;
+    height: 100%;
+    width: 1px;
+    background: rgba(34, 36, 38, 0.1);
+  }
 }
 
+.fxd-content {
+  margin-top: @top-marg;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+  background: rgba(255,255,255, .8);
+  .doc&{
+    height: 100%;
+    padding-bottom: 50px;
+  }
+  .padded& {
+    padding: 0 20px;
+  }
+  &:before, &:after {
+    position: absolute;
+    content: '';
+    top: 0%;
+    height: 100%;
+    width: 1px;
+    background: rgba(34, 36, 38, 0.1);
+  }
+  &:before{
+    left: 0px;
+  }
+  &:after {
+    right: 0px;
+  }
+}
 .icon-bg {
   z-index: 0;
   position: fixed;
@@ -35,21 +73,10 @@ body {
   width: 100vw;
   background: url('../img/poly.svg') no-repeat 0% 40%;
   background-size: cover;
+  opacity: .6;
 }
 
-.flex-col, .flex-mid-col{
-  margin-top: @top-marg;
-  height: calc('100vh - @top-marg');
-  transform: translateY(0);
-  flex: 0 0 45em;
-  order: -1;
-  box-shadow: 1px 0px 0px 0px rgba(34, 36, 38, 0.5);
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  background: rgba(255,255,255,.8)
-}
-
-.config-col, .pan-doc {
+.config-cards {
   bottom: 0;
   overflow: auto;
   padding: 2.5em 1.8em;
@@ -93,21 +120,6 @@ body {
         top: -1px;
       }
     }
-
-    .progress {
-      width:100px;
-      height: 100px;
-      margin:auto;
-      .progressbar-text {
-        top: 53%!important;
-        .proglabel {
-          font-size: .75em;
-          font-weight: 600;
-          text-transform: uppercase;
-          text-align: center;
-        }
-      }
-    }
   }
 
   .label i {
@@ -115,57 +127,34 @@ body {
   }
 }
 
-.flex-mid-col {
-  display: inherit;
-  flex-direction: column;
-  align-items: center;
-}
-
-.mid-col {
-  bottom: 0;
-  overflow: hidden;
-  padding: 2em 1em;
-  position: static;
-  left: 25vw;
-  right: 0;
-  visibility: visible;
-  z-index: 2;
-
-  .ui.huge.statistic {
-    width: 50%;
-    flex-basis: 30%;
-    > .value {
-      font-size: 3em!important;
-    }
-  }
-  .ui.header {
-    font-size:1em;
-  }
-  .segment {
-    width: 90%;
-    flex-basis: 0%;
+.ui.huge.statistic {
+  width: 100%;
+  margin-top: 40px;
+  > .value {
+    font-size: 3em!important;
   }
 }
+.ui.header {
+  font-size:1em;
+}
 
-.pan-doc {
-  background: #fff;
-  flex: 1 1 auto;
-  margin-top: @top-marg;
-  height: calc('100vh - @top-marg');
-  overflow-y: scroll;
+.segment {
+  width: 80%;
+  margin: auto!important;
+}
+
+#doc {
+  padding: 20px 0;
   -webkit-overflow-scrolling: touch;
-  padding: 2em 1.8em;
   z-index: 2;
-  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.1);
-  flex-direction: row;
   a {
     text-decoration: underline;
     font-style: italic;
     background: none;
-    color:#2185D0;
+    color:#37474F;
     &:hover {
-      background: rgba(33, 133, 208, .8);
-      color: #fff;
+      color: rgba(191, 215, 48, .8);
+      background: #37474F;
       text-decoration: none;
       transition: .3s ease-in;
     }
@@ -173,8 +162,8 @@ body {
   h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
     > a {
-        background: #2185D0;
-        color: #fff;
+        color: #bfd730;
+        background: #37474F;
         padding: 0 10px;
         font-style: normal;
         text-decoration: none;
@@ -191,10 +180,9 @@ and (max-width: 1440px) {
   html {
     font-size:.625em;
   }
-  .pan-doc, .flex-col, .flex-mid-col {
-    flex: 0 0 33.33vw;
-    margin-top: 28px;
-    height: calc(~"100vh - 28px");
+  #doc
+  {
+    padding-top: 20px;
   }
 }
 
@@ -203,15 +191,11 @@ and (max-width: 1080px) {
   html {
     font-size:.625em;
   }
-  .flex-col, .flex-mid-col {
-    flex: 0 0 50vw;
-    margin-top: 28px;
-    height: calc(~"100vh - 28px");
-  }
   .tablets {
     display: flex!important;
   }
-  .pan-doc {
+  #doc
+  {
     h1,h2,h3,h4,h5,h6 {
       font-size: 1.5em;
       line-height: 1em;
@@ -224,11 +208,14 @@ and (max-width: 669px) {
   html {
     font-size: .875em;
   }
-  .pan-doc, .flex-col, .flex-mid-col {
+  .fxd-content {
     margin-top: 0;
-    margin-bottom: 45px;
-    height: calc(~"100vh - 45px");
-    min-width: 100vw;
+  }
+  #doc
+  {
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 75px;
   }
   .widescreen {
     display: none!important;

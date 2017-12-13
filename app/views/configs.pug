@@ -1,0 +1,50 @@
+extends index.pug
+
+block header
+  .ui.top.fixed.icon.small.inverted.green.menu.widescreen
+    .ui.container
+      .item.header
+        | edu VPN
+      .right.menu
+        a.item(href="/")
+          i.download.icon
+          | New
+        a.item.active(href="configs.html")
+          i.list.icon
+          | Configurations
+        a.item(href="help.html")
+          i.help.icon
+          | Help
+        a.item(href="account.html")
+          i.user.icon
+          | Account
+          
+block content
+  .fxd-content.doc
+    - var act = 5
+    - var n = 1
+    - var now = new Date()
+    - var nowstr = now.toUTCString().substr(4).substr(0,21)
+    - var exp = new Date()
+    - var expy = exp.setFullYear(exp.getFullYear() + 1)
+    - var expstr = exp.toUTCString().substr(4).substr(0,21)
+    .ui.three.stackable.raised.link.cards.config-cards
+      while n <= 8
+        if n <= act
+          +config-block(n, 'check', 'green', nowstr, expstr)
+        else
+          +config-block(n, 'remove', 'black', nowstr, expstr)
+        - n++
+  .ui.bottom.fixed.labeled.icon.mini.fluid.four.item.inverted.green.menu.mobile
+    a.item(href="/")
+      i.download.icon
+      | New
+    a.item.active(href="configs.html")
+      i.list.icon
+      | Configs
+    a.item(href="help.html")
+      i.help.icon
+      | Help
+    a.item(href="account.html")
+      i.user.icon
+      | Account

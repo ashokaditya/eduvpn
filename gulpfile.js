@@ -20,7 +20,7 @@ gulp.task('sw', sw)
 gulp.task('sb', sb)
 
 gulp.task('pug', () => {
-  return gulp.src('app/views/index.pug')
+  return gulp.src('app/views/*.pug')
   .pipe(plumber())
   .pipe(pug({pretty: true}))
   .pipe(gulp.dest('app'))
@@ -50,14 +50,14 @@ gulp.task('jsmin', () => {
    var b = browserify(filename)
    return b.bundle()
   })
-  return gulp.src(['app/js/app.js','app/js/utils.js'])
+  return gulp.src('app/js/**/*.js')
     .pipe(plumber())
     .pipe(browserified)
     .pipe(uglify())
     .pipe(gulp.dest('app/js'))
 })
 
-gulp.task('serve', ['pug', 'less', 'babel', 'jsmin'], function () {
+gulp.task('serve', ['pug', 'less'], function () {
   browserSync.init({
     server: {
       baseDir: 'app'
@@ -65,7 +65,7 @@ gulp.task('serve', ['pug', 'less', 'babel', 'jsmin'], function () {
   })
   gulp.watch('app/views/**/*.pug', ['pug'])
   gulp.watch('app/less/**/*.less', ['less'])
-  gulp.watch('app/src/**/*.js', ['babel'])
+  // gulp.watch('app/src/**/*.js', ['babel'])
 })
 
 // gulp.task('watch', ['serve', 'semwatch', 'less'], function () {

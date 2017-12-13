@@ -1,11 +1,12 @@
 mixin create-panel(num)
-  .ui.blue.huge.statistic
+  .ui.huge.statistic
     .value= num
     .label active configurations
   .ui.centered.header
     | Download an active config or create new
+    
   .ui.tall.stacked.raised.padded.segment
-    h3.ui.center.aligned.blue.icon.header
+    h3.ui.center.aligned.green.icon.header
       i.circular.world.icon
       | New Configuration
     .ui.form.create
@@ -20,6 +21,6 @@ mixin create-panel(num)
             .item(data-value='0') Laptop home
             .item(data-value='1') iPhone work
             .item(data-value='2') Android home
-      button.ui.blue.fluid.button(type='submit')
+      button.ui.black.fluid.button(type='submit')
         i.download.icon
         | Add (Download)

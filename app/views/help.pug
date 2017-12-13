@@ -1,0 +1,37 @@
+extends index.pug
+
+block header
+  .ui.top.fixed.icon.small.inverted.green.menu.widescreen
+    .ui.container
+      .item.header
+        | edu VPN
+      .right.menu
+        a.item(href="/")
+          i.download.icon
+          | New
+        a.item(href="configs.html")
+          i.list.icon
+          | Configurations
+        a.item.active(href="help.html")
+          i.help.icon
+          | Help
+        a.item(href="account.html")
+          i.user.icon
+          | Account
+
+block content
+  .fxd-content.padded.doc
+    +doc-block('Getting Started')
+  .ui.bottom.fixed.labeled.icon.mini.fluid.four.item.inverted.green.menu.mobile
+    a.item(href="/")
+      i.download.icon
+      | New
+    a.item(href="configs.html")
+      i.list.icon
+      | Configs
+    a.item.active(href="help.html")
+      i.help.icon
+      | Help
+    a.item(href="account.html")
+      i.user.icon
+      | Account

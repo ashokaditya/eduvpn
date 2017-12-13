@@ -11,54 +11,41 @@ html
     link(rel='stylesheet', href='semantic/dist/semantic.css')
     link(rel='stylesheet', href='css/app.css')
   body
-    .ui.top.fixed.icon.small.blue.inverted.menu.widescreen
-      .item.header
-        | edu VPN
-      .right.menu
-        .item.tablets(onClick="appModule.showPanel('doc')")
-          i.help.icon
-        .item.ui.dropdown(onClick="appModule.showPanel('acc')")
-          i.user.icon
-    .flex-body
+    .bg-cover
       .icon-bg
-      .flex-col.config-col.pan-config
-        - var n = 1
-        - var act = 3
-        - var now = new Date()
-        - var nowstr = now.toUTCString().substr(4).substr(0,21)
-        - var exp = new Date()
-        - var expy = exp.setFullYear(exp.getFullYear() + 1)
-        - var expstr = exp.toUTCString().substr(4).substr(0,21)
-        .ui.two.stackable.raised.link.cards
-          while n <= 7
-            if n <= act
-              +config-block(n, 'check', 'blue', nowstr, expstr)
-            else
-              +config-block(n, 'minus', '', nowstr, expstr)
-            - n++
-      .flex-mid-col.mid-col.pan-new
-        +create-panel(act)
-      .flex-col.pan-doc.tablet
-        +doc-block('Getting Started')
-      .flex-col.pan-acc.mobile
-        +acc-block()
-    .ui.bottom.fixed.labeled.icon.mini.fluid.four.item.inverted.blue.borderless.menu.mobile
-      a.item.config.active(onClick="appModule.showPanel('config')")
-        i.list.icon
-        | Configs
-      a.item.new(onClick="appModule.showPanel('new')")
-        i.download.icon
-        | New
-      a.item.doc(onClick="appModule.showPanel('doc')")
-        i.help.icon
-        | Help
-      a.item.acc(onClick="appModule.showPanel('acc')") 
-        i.user.icon
-        | Account
-  script(
-    src='https://code.jquery.com/jquery-3.1.1.min.js' 
-    integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8='
-    crossorigin='anonymous')
-  script(src='semantic/dist/semantic.js')
-  script(src='js/progressbar.min.js')
-  script(src='js/app.js')
+    .ui.container
+      block header
+        .ui.top.fixed.icon.small.inverted.green.menu.widescreen
+          .ui.container
+            .item.header
+              | edu VPN
+            .right.menu
+              a.item.active(href="new.html")
+                i.download.icon
+                | New
+              a.item(href="configs.html")
+                i.list.icon
+                | Configurations
+              a.item(href="help.html")
+                i.help.icon
+                | Help
+              a.item(href="account.html")
+                i.user.icon
+                | Account
+      block content
+        .fxd-content.padded
+          - var act = 5
+          +create-panel(act)
+        .ui.bottom.fixed.labeled.icon.mini.fluid.four.item.inverted.green.menu.mobile
+          a.item.active(href="/")
+            i.download.icon
+            | New
+          a.item(href="configs.html")
+            i.list.icon
+            | Configs
+          a.item(href="help.html")
+            i.help.icon
+            | Help
+          a.item(href="account.html")
+            i.user.icon
+            | Account

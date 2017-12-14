@@ -1,13 +1,13 @@
 doctype html
 html
-  include config-card.pug 
+  include config-card.pug
   include create-new.pug
   include doc.pug
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title eduvpn
-    link(rel='stylesheet', href='semantic/dist/semantic.css')
+    //- link(rel='stylesheet', href='semantic/dist/semantic.css')
     link(rel='stylesheet', href='css/app.css')
   body
     .bg-cover
@@ -49,3 +49,9 @@ html
           a.item(href="account.html")
             i.user.icon
             | Account
+    script(
+      src='https://code.jquery.com/jquery-3.1.1.min.js'
+      integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8='
+      crossorigin='anonymous')
+    script(src='js/semantic.min.js')
+    script(src='js/app.js')

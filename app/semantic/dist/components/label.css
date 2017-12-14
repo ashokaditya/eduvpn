@@ -676,7 +676,7 @@ a.ui.basic.olive.label:hover {
 .ui.green.label {
   background-color: #bfd730 !important;
   border-color: #bfd730 !important;
-  color: #FFFFFF !important;
+  color: #1B1C1D !important;
 }
 
 /* Link */
@@ -684,7 +684,7 @@ a.ui.basic.olive.label:hover {
 a.ui.green.label:hover {
   background-color: #b6cf1e !important;
   border-color: #b6cf1e !important;
-  color: #FFFFFF !important;
+  color: #1B1C1D !important;
 }
 
 /* Corner */

@@ -2,7 +2,6 @@ doctype html
 html
   include config-card.pug 
   include create-new.pug
-  include account.pug
   include doc.pug
   head
     meta(charset='utf-8')
@@ -18,7 +17,8 @@ html
         .ui.top.fixed.icon.small.inverted.green.menu.widescreen
           .ui.container
             .item.header
-              | edu VPN
+              img(src='img/DeiC-logo.svg' alt='DeIC Logo')
+              | &nbsp;&nbsp;edu VPN
             .right.menu
               a.item.active(href="new.html")
                 i.download.icon

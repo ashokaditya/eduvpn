@@ -4,7 +4,8 @@ block header
   .ui.top.fixed.icon.small.inverted.green.menu.widescreen
     .ui.container
       .item.header
-        | edu VPN
+        img(src='img/DeiC-logo.svg' alt='DeIC Logo')
+        | &nbsp;&nbsp;edu VPN
       .right.menu
         a.item(href="/")
           i.download.icon
@@ -20,7 +21,7 @@ block header
           | Account
           
 block content
-  .fxd-content.doc
+  .fxd-content
     - var act = 5
     - var n = 1
     - var now = new Date()
@@ -33,7 +34,7 @@ block content
         if n <= act
           +config-block(n, 'check', 'green', nowstr, expstr)
         else
-          +config-block(n, 'remove', 'black', nowstr, expstr)
+          +config-block(n, 'remove', '', nowstr, expstr)
         - n++
   .ui.bottom.fixed.labeled.icon.mini.fluid.four.item.inverted.green.menu.mobile
     a.item(href="/")

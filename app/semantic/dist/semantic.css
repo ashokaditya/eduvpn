@@ -2900,7 +2900,7 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 .ui.green.buttons .button,
 .ui.green.button {
   background-color: #bfd730;
-  color: #FFFFFF;
+  color: #1B1C1D;
   text-shadow: none;
   background-image: none;
 }
@@ -2913,21 +2913,21 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 .ui.green.buttons .button:hover,
 .ui.green.button:hover {
   background-color: #b6cf1e;
-  color: #FFFFFF;
+  color: #1B1C1D;
   text-shadow: none;
 }
 
 .ui.green.buttons .button:focus,
 .ui.green.button:focus {
   background-color: #afc915;
-  color: #FFFFFF;
+  color: #1B1C1D;
   text-shadow: none;
 }
 
 .ui.green.buttons .button:active,
 .ui.green.button:active {
   background-color: #9db222;
-  color: #FFFFFF;
+  color: #1B1C1D;
   text-shadow: none;
 }
 
@@ -2936,7 +2936,7 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 .ui.green.active.button,
 .ui.green.button .active.button:active {
   background-color: #b9d31a;
-  color: #FFFFFF;
+  color: #1B1C1D;
   text-shadow: none;
 }
 
@@ -3004,7 +3004,7 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 .ui.inverted.green.button:active {
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  color: #FFFFFF;
+  color: #1B1C1D;
 }
 
 .ui.inverted.green.buttons .button:hover,
@@ -13382,7 +13382,7 @@ a.ui.basic.olive.label:hover {
 .ui.green.label {
   background-color: #bfd730 !important;
   border-color: #bfd730 !important;
-  color: #FFFFFF !important;
+  color: #1B1C1D !important;
 }
 
 /* Link */
@@ -13391,7 +13391,7 @@ a.ui.basic.olive.label:hover {
 a.ui.green.label:hover {
   background-color: #b6cf1e !important;
   border-color: #b6cf1e !important;
-  color: #FFFFFF !important;
+  color: #1B1C1D !important;
 }
 
 /* Corner */

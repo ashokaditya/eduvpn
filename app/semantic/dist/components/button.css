@@ -1886,7 +1886,7 @@
 .ui.green.buttons .button,
 .ui.green.button {
   background-color: #bfd730;
-  color: #FFFFFF;
+  color: #1B1C1D;
   text-shadow: none;
   background-image: none;
 }
@@ -1897,19 +1897,19 @@
 .ui.green.buttons .button:hover,
 .ui.green.button:hover {
   background-color: #b6cf1e;
-  color: #FFFFFF;
+  color: #1B1C1D;
   text-shadow: none;
 }
 .ui.green.buttons .button:focus,
 .ui.green.button:focus {
   background-color: #afc915;
-  color: #FFFFFF;
+  color: #1B1C1D;
   text-shadow: none;
 }
 .ui.green.buttons .button:active,
 .ui.green.button:active {
   background-color: #9db222;
-  color: #FFFFFF;
+  color: #1B1C1D;
   text-shadow: none;
 }
 .ui.green.buttons .active.button,
@@ -1917,7 +1917,7 @@
 .ui.green.active.button,
 .ui.green.button .active.button:active {
   background-color: #b9d31a;
-  color: #FFFFFF;
+  color: #1B1C1D;
   text-shadow: none;
 }
 
@@ -1977,7 +1977,7 @@
 .ui.inverted.green.button:active {
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
-  color: #FFFFFF;
+  color: #1B1C1D;
 }
 .ui.inverted.green.buttons .button:hover,
 .ui.inverted.green.button:hover {

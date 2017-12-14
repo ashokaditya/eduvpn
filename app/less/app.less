@@ -1,7 +1,7 @@
-@app-bg : #f1f5f9;
+@app-bg   : #f1f5f9;
 @top-marg : 36px;
-@wide-fs: 1rem;
-@mob-fs: .5rem;
+@wide-fs  : 1rem;
+@mob-fs   : .5rem;
 
 html {
   font-size: .875em;
@@ -21,6 +21,7 @@ body {
 }
 
 .inverted.menu {
+  .header,
   a {
     color:#37474F!important;
   }
@@ -127,6 +128,13 @@ body {
   }
 }
 
+.account-cards {
+  padding: 2.5em 1.8em;
+  .user-id {
+    word-wrap: break-word;
+  }
+}
+
 .ui.huge.statistic {
   width: 100%;
   margin-top: 40px;
@@ -153,8 +161,8 @@ body {
     background: none;
     color:#37474F;
     &:hover {
-      color: rgba(191, 215, 48, .8);
-      background: #37474F;
+      background: rgba(191, 215, 48, .8);
+      color: #37474F;
       text-decoration: none;
       transition: .3s ease-in;
     }
@@ -162,8 +170,8 @@ body {
   h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
     > a {
-        color: #bfd730;
-        background: #37474F;
+        background: #bfd730;
+        color: #37474F;
         padding: 0 10px;
         font-style: normal;
         text-decoration: none;
@@ -210,6 +218,9 @@ and (max-width: 669px) {
   }
   .fxd-content {
     margin-top: 0;
+  }
+  .account-cards, .config-cards {
+    padding: 2em 1em;
   }
   #doc
   {

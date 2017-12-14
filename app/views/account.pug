@@ -1,2 +1,91 @@
-mixin acc-block()
-  h3 Account
+extends index.pug
+
+block header
+  .ui.top.fixed.icon.small.inverted.green.menu.widescreen
+    .ui.container
+      .item.header
+        img(src='img/DeiC-logo.svg' alt='DeIC Logo')
+        | &nbsp;&nbsp;edu VPN
+      .right.menu
+        a.item(href="/")
+          i.download.icon
+          | New
+        a.item(href="configs.html")
+          i.list.icon
+          | Configurations
+        a.item(href="help.html")
+          i.help.icon
+          | Help
+        a.item.active(href="account.html")
+          i.user.icon
+          | Account
+          
+block content
+  .fxd-content.doc
+    .ui.one.stackable.raised.link.cards.account-cards
+      .ui.card
+        .content
+          .header User Info
+        .content  
+          i.user.icon.green
+          | ID
+          .user-id WAYF-DK-5ce649ef50275abbf519e785788d8e33c1df6382
+        .content
+          i.users.icon.green
+          | Groups
+          .ui.list
+            - var g = 1
+            while g <= 10
+              .item
+                a.ui.label.green
+                  i.hand.peace.icon
+                  | DTU group #{g * 1.33}
+              - g++
+        .content
+          a(href='configs.html')
+            i.certificate.icon.green
+            | 5 active certificates
+            
+      .ui.card
+        .content
+          .header Two Factor Authentication
+        .content
+          .two.ui.buttons
+            button.ui.animated.fade.button.blue.basic
+              .visible.content
+                i.cube.icon
+                | TOTP
+              .hidden.content
+                i.qrcode.icon
+            button.ui.animated.fade.button.red.basic
+              .visible.content
+                i.key.icon
+                | YubiKey
+              .hidden.content
+                i.qrcode.icon
+                  
+      .ui.card
+        .content
+          .header Authorized Applications
+        .content
+          .ui.list
+            - var ap = 2
+            while ap <= 16
+              .item
+                a.ui.label.green
+                  i.lab.icon
+                  | Applicaton #{ap * 1.25}
+              - ap++
+  .ui.bottom.fixed.labeled.icon.mini.fluid.four.item.inverted.green.menu.mobile
+    a.item(href="/")
+      i.download.icon
+      | New
+    a.item(href="configs.html")
+      i.list.icon
+      | Configs
+    a.item(href="help.html")
+      i.help.icon
+      | Help
+    a.item.active(href="account.html")
+      i.user.icon
+      | Account

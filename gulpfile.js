@@ -20,7 +20,12 @@ gulp.task('sw', sw)
 gulp.task('sb', sb)
 
 gulp.task('pug', () => {
-  return gulp.src('app/views/*.pug')
+  return gulp.src([
+    'app/views/*.pug',
+    '!app/views/create-new.pug',
+    '!app/views/doc.pug',
+    '!app/views/config-card.pug'
+  ])
   .pipe(plumber())
   .pipe(pug({pretty: true}))
   .pipe(gulp.dest('app'))

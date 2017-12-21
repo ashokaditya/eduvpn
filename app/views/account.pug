@@ -19,14 +19,14 @@ block header
         a.item.active(href="account.html")
           i.user.icon
           | Account
-          
+
 block content
   .fxd-content.doc
     .ui.one.stackable.raised.link.cards.account-cards
       .ui.card
         .content
           .header User Info
-        .content  
+        .content
           i.user.icon.green
           | ID
           .user-id WAYF-DK-5ce649ef50275abbf519e785788d8e33c1df6382
@@ -44,8 +44,8 @@ block content
         .content
           a(href='configs.html')
             i.certificate.icon.green
-            | 5 active certificates
-            
+            | 16 active certificates
+
       .ui.card
         .content
           .header Two Factor Authentication
@@ -54,23 +54,23 @@ block content
             button.ui.animated.fade.button.blue.basic
               .visible.content
                 i.cube.icon
-                | TOTP
+                | Enroll TOTP
               .hidden.content
                 i.qrcode.icon
             button.ui.animated.fade.button.red.basic
               .visible.content
                 i.key.icon
-                | YubiKey
+                | Register YubiKey
               .hidden.content
                 i.qrcode.icon
-                  
+
       .ui.card
         .content
           .header Authorized Applications
         .content
           .ui.list
             - var ap = 2
-            while ap <= 16
+            while ap <= 18
               .item
                 a.ui.label.green
                   i.lab.icon

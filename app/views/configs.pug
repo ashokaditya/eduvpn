@@ -22,7 +22,7 @@ block header
           
 block content
   .fxd-content
-    - var act = 5
+    - var act = 16
     - var n = 1
     - var now = new Date()
     - var nowstr = now.toUTCString().substr(4).substr(0,21)
@@ -30,7 +30,7 @@ block content
     - var expy = exp.setFullYear(exp.getFullYear() + 1)
     - var expstr = exp.toUTCString().substr(4).substr(0,21)
     .ui.three.stackable.raised.link.cards.config-cards
-      while n <= 8
+      while n <= 25
         if n <= act
           +config-block(n, 'check', 'green', nowstr, expstr)
         else

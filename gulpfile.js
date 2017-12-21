@@ -43,7 +43,7 @@ gulp.task('less', () => {
 })
 
 gulp.task('babel', () => {
-  return gulp.src('app/src/**/*.js')
+  return gulp.src('app/src/app.js')
   .pipe(plumber())
   .pipe(babel())
   .pipe(gulp.dest('app/js'))
@@ -62,7 +62,7 @@ gulp.task('jsmin', () => {
     .pipe(gulp.dest('app/js'))
 })
 
-gulp.task('serve', ['pug', 'less'], function () {
+gulp.task('serve', ['pug', 'less', 'babel'], function () {
   browserSync.init({
     server: {
       baseDir: 'app'
@@ -70,7 +70,7 @@ gulp.task('serve', ['pug', 'less'], function () {
   })
   gulp.watch('app/views/**/*.pug', ['pug'])
   gulp.watch('app/less/**/*.less', ['less'])
-  // gulp.watch('app/src/**/*.js', ['babel'])
+  gulp.watch('app/src/**/*.js', ['babel'])
 })
 
 // gulp.task('watch', ['serve', 'semwatch', 'less'], function () {
